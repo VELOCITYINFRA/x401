@@ -1,0 +1,14 @@
+{
+  "name": "velocityx401zkp",
+  "version": "1.0.0",
+  "description": "velocity x401 zero knowledge proof signing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "velocityinfra",
+  "license": "ISC",
+  "dependencies": {
+    "snarkjs": "^0.7.5"
+  }
+}
