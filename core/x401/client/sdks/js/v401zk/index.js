@@ -32,8 +32,8 @@ export function detectWallets() {
 }
 
 
-const url ="https://itsvelocity-401.hf.space/x401_auth"
-const path=new URL("https://itsvelocity-401.hf.space/x401_auth").pathname;
+const url ="VELOCITYINFRA/x401_auth"
+const path=new URL("VELOCITYINFRA/x401_auth").pathname;
 
 
 
@@ -193,4 +193,5 @@ export default async function VelocityzkProofCreation(){
 
       }
    
+
 }
