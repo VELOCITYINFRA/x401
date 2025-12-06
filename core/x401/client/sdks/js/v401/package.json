@@ -1,0 +1,26 @@
+{
+  "name": "velocitytunedx401",
+  "version": "1.1.4",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node build.js",
+    "prepublishOnly": "npm run build"
+  },
+  "type": "module",
+  "description": "velocity 401 implementation",
+  "author": "velocityinfra",
+  "license": "ISC",
+  "dependencies": {
+    "@simplewebauthn/browser": "^13.2.2",
+    "bs58": "^6.0.0",
+    "playwright": "^1.57.0"
+  },
+  "devDependencies": {
+    "@vitest/browser": "^4.0.15",
+    "esbuild": "^0.27.0",
+    "vitest": "^4.0.15"
+  }
+}
