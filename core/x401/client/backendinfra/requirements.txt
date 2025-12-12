@@ -1,0 +1,10 @@
+fastapi[standard]
+geopy
+uvicorn
+requests
+httpx
+base58
+requests
+PyNaCl
+PyJWT
+pymongo
