@@ -7,7 +7,7 @@ import {
     browserSupportsWebAuthn 
 } from '@simplewebauthn/browser';
 
-
+import { BrowserProvider } from "ethers";
 
 
 
@@ -130,6 +130,7 @@ export function detectWallets() {
   if (window.phantom?.solana || window.solana) wallets.push('phantom');
   if (window.backpack) wallets.push('backpack');
   if (window.solflare) wallets.push('solflare');
+  if (window.ethereum) wallets.push("metamask")
 
   return wallets
 }
@@ -219,6 +220,19 @@ async function signPayload(payload,wallet) {
             };
             
             }
+             else if (wallet == "metamask") {
+                const provider = new BrowserProvider(window.ethereum);
+                const signer = await provider.getSigner();
+                const signature = await signer.signMessage(payload);
+                const address = await signer.getAddress();
+
+                return {
+                        signature:  Uint8Array.from(Buffer.from(signature, "hex")),
+                        publicKey: address
+                    };
+
+                }
+
 
 
 
@@ -323,6 +337,7 @@ if(config.device_auth){
                             "helius_api_key":"",
                             "geo_code":config.geo_code,
                             "geo_code_locs":config.geo_code_locs, 
+                             "eth":config.wallet =="ethereum"?"true":"false"
                         }
                     });
 
@@ -447,6 +462,7 @@ if(config.device_auth){
                 "helius_api_key":"",
                 "geo_code":config.geo_code,
                 "geo_code_locs":config.geo_code_locs,
+                 "eth":config.wallet =="ethereum"?"true":"false"
                 
             }
         });
